@@ -1,7 +1,7 @@
 {
   "name": "q-local",
   "version": "1.0.1",
-  "description": "Fork of Q that allows easy sharing of data between promises as long as they are part of the same promise chain or any of its subchains",
+  "description": "Fork of Q which allows easy sharing of data between promises as long as they are part of the same promise chain or any of its subchains",
   "homepage": "https://github.com/franksrevenge/q-local",
   "author": "Aleksi Asikainen <aleksi.asikainen@gmail.com> (https://github.com/franksrevenge)",
   "keywords": [

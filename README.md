@@ -205,6 +205,24 @@ function run2()
 ```
 
 
+## API Reference
+
+### promise.local(onAccess)
+
+Exposes the shared local data object to `onAccess` function. The local data object will be passed
+as the first argument of the function call.
+
+```javascript
+function onAccess(localData) {}
+```
+
+Any changes to the _properties_ of localData will be automatically shared with other
+accessors. Note that changing the `localData` object itself (e.g. `localData = {};`)
+will not have any effect outside of `onAccess` function.
+
+The return value of `onAccess` will be treated as if it was `promise.then(onAccess, null, null)`.
+
+Execution order behaves the same way than `promise.then(onAccess, null, null)`
 
 
 ## License
