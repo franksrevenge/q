@@ -1076,6 +1076,52 @@ describe("local", function () {
             expect(testValue2).toBe(222);
         });
     });
+
+    it( "doesn't share local data between unconnected chains", function() {
+        var testObjectA = false,
+            testObjectB = false;
+
+        Q(10)
+        .then(function () {
+            var deferred = Q.defer();
+            deferred.resolve(true);
+
+            return deferred.promise
+            .local(function(localData) {
+                localData.testValueA = 100;
+            })
+            .thenResolve(true);
+        })
+        .local(function(localData) {
+            testObjectA = localData;
+        });
+
+
+        Q(10)
+        .then(function () {
+            var deferred = Q.defer();
+            deferred.resolve(true);
+
+            return deferred.promise
+            .local(function(localData) {
+                localData.testValueB = 100;
+            })
+            .thenResolve(true);
+        })
+        .local(function(localData) {
+            testObjectB = localData;
+        });
+
+
+        waitsFor(function () {
+            return ((testObjectA !== false) && (testObjectB !== false));
+        });
+
+        runs(function () {
+            expect(testObjectA).not.toBe(testObjectB);
+        });
+    });
+
 });
 
 describe("promise states", function () {
