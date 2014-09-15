@@ -1121,6 +1121,35 @@ describe("local", function () {
             expect(testObjectA).not.toBe(testObjectB);
         });
     });
+    
+    
+    it( "allows use of ninvoke() as first in chain", function() {
+   		var testValue = false;
+   
+    	var callObject = {
+    		fakeNodeStyleAsyncFunction : function( arg1, callback )
+    		{
+    			callback( null, true );
+    		}
+    	}
+    	
+    	Q.ninvoke(callObject, 'fakeNodeStyleAsyncFunction', false)
+    	.local( function(localData) {
+ 			localData.testValue = 100;
+   		})
+   		.local( function(localData) {
+   			testValue = localData.testValue;
+   		});
+    	
+        waitsFor(function () {
+            return (testValue !== false);
+        });
+
+        runs(function () {
+            expect(testValue).toBe(100);
+        });
+    
+    });
 
 });
 

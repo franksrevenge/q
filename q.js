@@ -682,6 +682,11 @@ function defer() {
  */
 defer.prototype.makeNodeResolver = function () {
     var self = this;
+    
+    if (!self.getDataHolder()) {
+        self.setDataHolder(new QDataDispatchPacket());
+    }
+    
     return function (error, value) {
         if (error) {
             self.reject(error);
