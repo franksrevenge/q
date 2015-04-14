@@ -1,6 +1,6 @@
 {
   "name": "q-local",
-  "version": "1.0.1-2",
+  "version": "1.2.0",
   "description": "Fork of Q which allows easy sharing of data between promises as long as they are part of the same promise chain or any of its subchains",
   "homepage": "https://github.com/franksrevenge/q-local",
   "author": "Aleksi Asikainen <aleksi.asikainen@gmail.com> (https://github.com/franksrevenge)",
@@ -21,11 +21,25 @@
     "browser",
     "node"
   ],
+  "contributors": [
+    "Kris Kowal <kris@cixar.com> (https://github.com/kriskowal)",
+    "Irakli Gozalishvili <rfobic@gmail.com> (http://jeditoolkit.com)",
+    "Domenic Denicola <domenic@domenicdenicola.com> (http://domenicdenicola.com)"
+  ],
+  "bugs": {
+    "mail": "kris@cixar.com",
+    "url": "http://github.com/kriskowal/q/issues"
+  },
   "license": {
     "type": "MIT",
     "url": "https://github.com/franksrevenge/q-local/raw/v1/LICENSE"
   },
   "main": "q.js",
+  "files": [
+    "LICENSE",
+    "q.js",
+    "queue.js"
+  ],
   "repository": {
     "type": "git",
     "url": "git://github.com/franksrevenge/q-local.git"

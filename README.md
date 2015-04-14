@@ -226,9 +226,9 @@ Execution order behaves the same way than `promise.then(onAccess, null, null)`
 
 
 ## License
-Changes in Q Local are copyright 2014 Aleksi Asikainen.
+Changes in Q Local are copyright 2014-2015 Aleksi Asikainen.
 
-Q is Copyright 2009–2014 Kristopher Michael Kowal.
+Q is Copyright 2009–2015 Kristopher Michael Kowal.
 
 MIT License (enclosed)
 
